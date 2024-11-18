@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'Node' // Name defined in Jenkins Global Tool Configuration
+    }
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                git 'https://github.com/subrat-kmr/pizza-app'
+                echo 'Installing Dependencies...'
+                bat 'npm install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                echo 'Running Tests...'
+                bat 'npm test'
+            }
+        }
+        stage('Run Lint') {
+            steps {
+                echo 'Running Lint Checks...'
+                bat 'npm run lint'
+            }
+        }
+    }
+}

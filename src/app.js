@@ -17,7 +17,7 @@ app.use('/api/user', authRoutes);
 app.use('/api/pizzas', pizzaRoutes);
 app.use('/api/orders', orderRoutes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Pizza app listening on port ${port}`);
 });
